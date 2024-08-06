@@ -10,24 +10,30 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             background-color: #e6ffe6;
             overflow: hidden;
         }
         .daisy {
-            position: absolute;
+            position: fixed;
             font-size: 30px;
             opacity: 0.7;
-            animation: float 10s infinite linear; /* Reducido de 20s a 10s para mayor velocidad */
+            animation: float 10s infinite linear;
         }
         @keyframes float {
             0% { transform: translateY(100vh) rotate(0deg); }
             100% { transform: translateY(-100vh) rotate(360deg); }
         }
-        #giftContainer {
-            text-align: center;
+        #container {
+            position: relative;
             z-index: 10;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+        #giftContainer {
+            margin-bottom: 20px;
         }
         #giftText {
             font-size: 24px;
@@ -36,7 +42,7 @@
             font-weight: bold;
         }
         .gift {
-            font-size: 100px;
+            font-size: 80px;
             cursor: pointer;
             transition: transform 0.3s;
         }
@@ -46,20 +52,24 @@
         .message {
             display: none;
             text-align: center;
-            font-size: 18px;
-            margin-top: 20px;
+            font-size: 16px;
             padding: 20px;
             background-color: #fff;
             border: 2px solid #4CAF50;
             border-radius: 10px;
-            max-width: 400px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            z-index: 10;
+        }
+        .message h2 {
+            font-size: 22px;
+        }
+        .message ul {
+            text-align: left;
+            padding-left: 20px;
         }
         .seal {
             display: none;
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             background-color: #8B0000;
             border-radius: 50%;
             margin: 20px auto;
@@ -74,7 +84,7 @@
             transform: translate(-50%, -50%);
             color: #FFD700;
             font-family: 'Brush Script MT', cursive;
-            font-size: 24px;
+            font-size: 20px;
         }
         @keyframes sealAnimation {
             0% { transform: scale(0) rotate(0deg); }
@@ -106,9 +116,31 @@
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s;
+            font-size: 14px;
         }
         #couponOptions a:hover {
             background-color: #45a049;
+        }
+        @media (max-width: 600px) {
+            #giftText {
+                font-size: 20px;
+            }
+            .gift {
+                font-size: 60px;
+            }
+            .message {
+                font-size: 14px;
+            }
+            .message h2 {
+                font-size: 20px;
+            }
+            .seal {
+                width: 80px;
+                height: 80px;
+            }
+            .seal::after {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -124,14 +156,14 @@
             <p>Tu sonrisa ilumina cada habitación, tu bondad inspira a todos los que te conocen, y tu fuerza ante los desafíos es verdaderamente admirable.</p>
             <p>Aunque es tu cumpleaños, tú eres un regalo para los demás. ¡Feliz cumpleaños!</p>
             <p>Que este nuevo año de vida esté lleno de:</p>
-            <ul style="text-align: left;">
+            <ul>
                 <li>Aventuras emocionantes que amplíen tus horizontes</li>
                 <li>Risas contagiosas con amigos y seres queridos</li>
                 <li>Logros que te llenen de orgullo y satisfacción</li>
                 <li>Momentos de paz y reflexión para nutrir tu espíritu</li>
             </ul>
-          <p>Recuerda siempre lo especial que eres y cuánto te amamos. ¡Que todos tus sueños se hagan realidad!</p>
-            <p>Con cariño infinito (NOCTREA),</p>
+            <p>Recuerda siempre lo especial que eres y cuánto te valoramos. ¡Que todos tus sueños se hagan realidad!</p>
+            <p>Con cariño infinito,</p>
             <div id="seal" class="seal"></div>
             <a href="#" id="coupon" class="coupon">Ver Opciones de Cupón</a>
             <div id="couponOptions">
@@ -158,7 +190,7 @@
             const daisy = document.createElement('div');
             daisy.className = 'daisy';
             daisy.style.left = `${Math.random() * 100}%`;
-            daisy.style.animationDelay = `${Math.random() * 10}s`; // Reducido de 20s a 10s
+            daisy.style.animationDelay = `${Math.random() * 10}s`;
             daisy.textContent = '🌼';
             document.body.appendChild(daisy);
         }
@@ -182,7 +214,7 @@
 
         choosePlace.addEventListener('click', (e) => {
             e.preventDefault();
-            alert('¡Genial! Puedes elegir el lugar que prefieras para tu cena de cumpleaños. Dime donde te gustaria, para coordinar los detalles.');
+             alert('¡Genial! Puedes elegir el lugar que prefieras para tu cena de cumpleaños. Dime donde te gustaria, para coordinar los detalles.');
         });
 
         cashOption.addEventListener('click', (e) => {
