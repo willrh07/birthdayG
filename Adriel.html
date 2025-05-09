@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños Adriel</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #e6ffe6;
+            overflow: hidden;
+        }
+        .daisy {
+            position: fixed;
+            font-size: 30px;
+            opacity: 0.7;
+            animation: float 10s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100vh) rotate(360deg); }
+        }
+        #container {
+            position: relative;
+            z-index: 10;
+            width: 90%;
+            max-width: 380px;
+            text-align: center;
+        }
+        #giftContainer {
+            margin-bottom: 20px;
+        }
+        #giftText {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .gift {
+            font-size: 75px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .gift:hover {
+            transform: scale(1.1);
+        }
+        .message {
+            display: none;
+            text-align: center;
+            font-size: 16px;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .message h2 {
+            font-size: 22px;
+        }
+        .message ul {
+            text-align: left;
+            padding-left: 20px;
+        }
+        .seal {
+            display: none;
+            width: 100px;
+            height: 100px;
+            background-color: #8B0000;
+            border-radius: 50%;
+            margin: 20px auto;
+            position: relative;
+            animation: sealAnimation 2s forwards;
+        }
+        .seal::after {
+            content: " Tio Will";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #FFD700;
+            font-family: 'Brush Script MT', cursive;
+            font-size: 18px;
+        }
+        @keyframes sealAnimation {
+            0% { transform: scale(0) rotate(0deg); }
+            100% { transform: scale(1) rotate(360deg); }
+        }
+        .coupon {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .coupon:hover {
+            background-color: #45a049;
+        }
+        #couponOptions {
+            display: none;
+            margin-top: 20px;
+        }
+        #couponOptions a {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 14px;
+        }
+        #couponOptions a:hover {
+            background-color: #45a049;
+        }
+        @media (max-width: 600px) {
+            #giftText {
+                font-size: 20px;
+            }
+            .gift {
+                font-size: 60px;
+            }
+            .message {
+                font-size: 14px;
+            }
+            .message h2 {
+                font-size: 20px;
+            }
+            .seal {
+                width: 80px;
+                height: 80px;
+            }
+            .seal::after {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="giftContainer">
+            <div id="giftText">¡Ábrelo! Es tu cumpleaños</div>
+            <div id="gift" class="gift">🎁</div>
+        </div>
+        <div id="message" class="message">
+            <h2>¡Feliz Cumpleaños, Adriel!</h2>
+            <p>En este día tan especial, quiero celebrar la maravillosa persona que eres y todo lo que significas para quienes te rodean y te queremos.</p>
+            <p>Tu corazòn ilumina cada lugar, tu bondad inspira a todos los que te conocen, y tu fuerza ante los desafíos es verdaderamente admirable.</p>
+            <p>Aunque es tu cumpleaños, tú eres un regalo para los demás. ¡Feliz cumpleaños!</p>
+            <p>Que este nuevo año de vida esté lleno de:</p>
+            <ul>
+                <li>Aventuras emocionantes que amplíen tus horizontes</li>
+                <li>Risas contagiosas con amigos y seres queridos</li>
+                <li>Logros que te llenen de orgullo y satisfacción</li>
+                <li>Momentos de paz y reflexión para nutrir tu espíritu</li>
+            </ul>
+            <p>Recuerda siempre lo especial que eres y cuánto te valoramos. ¡Que todos tus sueños se hagan realidad!</p>
+            <p>Con cariño,</p>
+            <div id="seal" class="seal"></div>
+            <a href="#" id="coupon" class="coupon">Ver Opciones de Cupón</a>
+            <div id="couponOptions">
+                <a href="https://www.instagram.com/latacopediacr/?hl=es" target="_blank">Comida en La Tacopedia</a>
+                <a href="https://www.instagram.com/kololoramen/?hl=es" target="_blank">Comida en Restaurante Kololo Ramen</a>
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const gift = document.getElementById('gift');
+        const giftContainer = document.getElementById('giftContainer');
+        const message = document.getElementById('message');
+        const seal = document.getElementById('seal');
+        const coupon = document.getElementById('coupon');
+        const couponOptions = document.getElementById('couponOptions');
+        const choosePlace = document.getElementById('choosePlace');
+        const cashOption = document.getElementById('cashOption');
+
+        // Crear y añadir margaritas
+        for (let i = 0; i < 20; i++) {
+            const daisy = document.createElement('div');
+            daisy.className = 'daisy';
+            daisy.style.left = `${Math.random() * 100}%`;
+            daisy.style.animationDelay = `${Math.random() * 10}s`;
+            daisy.textContent = '☘️';
+            document.body.appendChild(daisy);
+        }
+
+        gift.addEventListener('click', () => {
+            giftContainer.style.display = 'none';
+            message.style.display = 'block';
+            setTimeout(() => {
+                seal.style.display = 'block';
+                setTimeout(() => {
+                    coupon.style.display = 'inline-block';
+                }, 2000);
+            }, 5000);
+        });
+
+        coupon.addEventListener('click', (e) => {
+            e.preventDefault();
+            couponOptions.style.display = 'block';
+            coupon.style.display = 'none';
+        });
+
+        choosePlace.addEventListener('click', (e) => {
+            e.preventDefault();
+             alert('¡Genial! Puedes elegir el lugar que prefieras para tu cena de cumpleaños. donde te gustaria, para coordinar los detalles.');
+        });
+
+    </script>
+</body>
+</html>
