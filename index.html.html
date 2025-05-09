@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Cumpleaños Gaby</title>
+    <title>Feliz Cumpleaños Adriel</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -29,7 +29,7 @@
             position: relative;
             z-index: 10;
             width: 90%;
-            max-width: 400px;
+            max-width: 380px;
             text-align: center;
         }
         #giftContainer {
@@ -42,9 +42,9 @@
             font-weight: bold;
         }
         .gift {
-            font-size: 80px;
+            font-size: 75px;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: transform 0.2s;
         }
         .gift:hover {
             transform: scale(1.1);
@@ -77,14 +77,14 @@
             animation: sealAnimation 2s forwards;
         }
         .seal::after {
-            content: "Will";
+            content: " Tio Will";
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             color: #FFD700;
             font-family: 'Brush Script MT', cursive;
-            font-size: 20px;
+            font-size: 18px;
         }
         @keyframes sealAnimation {
             0% { transform: scale(0) rotate(0deg); }
@@ -151,9 +151,9 @@
             <div id="gift" class="gift">🎁</div>
         </div>
         <div id="message" class="message">
-            <h2>¡Feliz Cumpleaños, Gaby!</h2>
-            <p>En este día tan especial, quiero celebrar la maravillosa persona que eres y todo lo que significas para mí y para quienes te rodean.</p>
-            <p>Tu sonrisa ilumina cada habitación, tu bondad inspira a todos los que te conocen, y tu fuerza ante los desafíos es verdaderamente admirable.</p>
+            <h2>¡Feliz Cumpleaños, Adriel!</h2>
+            <p>En este día tan especial, quiero celebrar la maravillosa persona que eres y todo lo que significas para quienes te rodean y te queremos.</p>
+            <p>Tu corazòn ilumina cada lugar, tu bondad inspira a todos los que te conocen, y tu fuerza ante los desafíos es verdaderamente admirable.</p>
             <p>Aunque es tu cumpleaños, tú eres un regalo para los demás. ¡Feliz cumpleaños!</p>
             <p>Que este nuevo año de vida esté lleno de:</p>
             <ul>
@@ -163,14 +163,13 @@
                 <li>Momentos de paz y reflexión para nutrir tu espíritu</li>
             </ul>
             <p>Recuerda siempre lo especial que eres y cuánto te valoramos. ¡Que todos tus sueños se hagan realidad!</p>
-            <p>Con cariño infinito,</p>
+            <p>Con cariño,</p>
             <div id="seal" class="seal"></div>
             <a href="#" id="coupon" class="coupon">Ver Opciones de Cupón</a>
             <div id="couponOptions">
-                <a href="https://www.instagram.com/latacopediacr/?hl=es" target="_blank">Cena en La Tacopedia</a>
-                <a href="https://www.restaurantematsuri.com/" target="_blank">Cena en Restaurante Matsuri</a>
-                <a href="#" id="choosePlace">Lugar a elegir de tu preferencia</a>
-                <a href="#" id="cashOption">Vale de 30 mil colones</a>
+                <a href="https://www.instagram.com/latacopediacr/?hl=es" target="_blank">Comida en La Tacopedia</a>
+                <a href="https://www.instagram.com/kololoramen/?hl=es" target="_blank">Comida en Restaurante Kololo Ramen</a>
+                
             </div>
         </div>
     </div>
@@ -191,7 +190,7 @@
             daisy.className = 'daisy';
             daisy.style.left = `${Math.random() * 100}%`;
             daisy.style.animationDelay = `${Math.random() * 10}s`;
-            daisy.textContent = '🌼';
+            daisy.textContent = '☘️';
             document.body.appendChild(daisy);
         }
 
@@ -214,13 +213,9 @@
 
         choosePlace.addEventListener('click', (e) => {
             e.preventDefault();
-             alert('¡Genial! Puedes elegir el lugar que prefieras para tu cena de cumpleaños. Dime donde te gustaria, para coordinar los detalles.');
+             alert('¡Genial! Puedes elegir el lugar que prefieras para tu cena de cumpleaños. donde te gustaria, para coordinar los detalles.');
         });
 
-        cashOption.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Has seleccionado el vale de 30 mil colones. ¡Dimelo para recibir tu Sinpe!');
-        });
     </script>
 </body>
 </html>
